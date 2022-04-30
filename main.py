@@ -1,9 +1,13 @@
-import pygame, sys
+import pygame, sys, os
 from datetime import datetime
 
 pygame.init()
 
-size = 250, 100
+width, height = 250, 100
+
+screen = pygame.display.Info()
+x, y = screen.current_w, screen.current_h
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x-width, y-(height+75))
 
 settings = open('./settings.txt', 'r')
 
@@ -22,8 +26,9 @@ if noFrame:
     flags = pygame.NOFRAME
 else:
     flags = pygame.RESIZABLE 
+
+window = pygame.display.set_mode((width, height), flags, 0,0)
     
-screen = pygame.display.set_mode(size, flags)
 interval = 1 
 
 def main():
@@ -45,7 +50,7 @@ def main():
             if event.type == pygame.QUIT:
                 sys.exit()
 
-        screen.fill((0,0,0))
+        window.fill((0,0,0))
         pygame.display.flip()
 
 if __name__ == '__main__':

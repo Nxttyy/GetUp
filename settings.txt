@@ -1,0 +1,4 @@
+#settings
+#1-on,0-off
+
+NoFrameDisplay 1 

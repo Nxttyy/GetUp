@@ -2,3 +2,6 @@
 #1-on,0-off
 
 NoFrameDisplay 1 
+
+#reminder interval in min
+interval 1
